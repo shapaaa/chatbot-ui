@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import styled, { css } from "styled-components";
+import ChatBot from "./components/ChatBot";
+import ChatBotIcon from "./components/ChatBotIcon";
+
+const Container = styled.div`
+ position: fixed;
+ right: 2vw;
+ bottom: 50px;
+`
 
 function App() {
+  const [showChatBox, setShowChatBox] = useState( false );
+  const handleClick = () => {
+    setShowChatBox( !showChatBox )
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+      {showChatBox && <ChatBot handleClick={handleClick} />}
+      {!showChatBox && <ChatBotIcon handleClick={handleClick} button={true} />}
+    </Container>
   );
 }
 
