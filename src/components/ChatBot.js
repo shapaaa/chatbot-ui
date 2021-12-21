@@ -1,4 +1,4 @@
-import styled, { css, keyframes } from "styled-components";
+import styled, { keyframes } from "styled-components";
 import CancelIcon from "../assets/Icons/CancelIcon";
 import ChatIcon from '../assets/Icons/ChatIcon'
 import WaveIcon from '../assets/Icons/WaveIcon'
