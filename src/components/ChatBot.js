@@ -191,31 +191,3 @@ const ChatBot = ( { handleClick } ) => {
     )
 }
 export default ChatBot;
-{/* <WrapperIntro>
-<IntroComponent>
-    <Name>IRIS</Name>
-    <Hello>Hello</Hello>
-    <IntroWrapper>
-        <Intro>
-            I am Iris, a Virtual Assistant
-        </Intro>
-        <Intro>
-            How may I help you?
-        </Intro>
-    </IntroWrapper>
-</IntroComponent>
-</WrapperIntro>
-<AnotherComponent>
-
-</AnotherComponent> */}
-
-// const AnotherComponent = styled.div`
-// /* position: relative;
-
-//   `
-// const WrapperIntro = styled.div`
-//   /* background: linear-gradient(123.75deg, #F5821F 1.87%, #FF5C00 120.46%);
-//   width: 100%;
-//   height:278px;
-//   padding: 20px 0; */
-// `
