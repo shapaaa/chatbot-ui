@@ -7,17 +7,29 @@ const Container = styled.div`
  position: fixed;
  right: 2vw;
  bottom: 50px;
+ ${( { showChatBox } ) => !showChatBox && css`
+ bottom: -10px;
+ `}
 `
 
 function App() {
   const [showChatBox, setShowChatBox] = useState( false );
+  const [animate, setAnimate] = useState( false );
   const handleClick = () => {
-    setShowChatBox( !showChatBox )
+    if ( !showChatBox ) {
+      setAnimate( true );
+      setTimeout( () => {
+        setAnimate( false )
+        setShowChatBox( !showChatBox )
+      }, 550 )
+    }
+    else
+      setShowChatBox( !showChatBox )
   }
   return (
-    <Container>
+    <Container showChatBox={showChatBox}>
       {showChatBox && <ChatBot handleClick={handleClick} />}
-      {!showChatBox && <ChatBotIcon handleClick={handleClick} button={true} />}
+      {!showChatBox && <ChatBotIcon animate={animate} handleClick={handleClick} button={true} />}
     </Container>
   );
 }

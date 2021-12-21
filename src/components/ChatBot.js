@@ -1,8 +1,14 @@
-import styled from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 import CancelIcon from "../assets/Icons/CancelIcon";
 import ChatIcon from '../assets/Icons/ChatIcon'
 import WaveIcon from '../assets/Icons/WaveIcon'
 import ChatBotIcon from "./ChatBotIcon";
+
+export const fadeEasy = keyframes`
+ 100%{
+     opacity: 1;
+ }
+ `
 
 const questions = [
     {
@@ -23,13 +29,20 @@ const questions = [
     },
 
 ]
+const moveUp = keyframes`
+100%{
+    transform:translateY(0px);
+}
+`
 const Container
     = styled.div`
   width: 416px;
   height: 100%;
+  transform:translateY(110%);
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 4px 16px rgb(0 0 0 / 25%);
+  animation: ${moveUp} .5s 0s ease forwards;
   @media screen and (max-width:440px) {
     width: 95vw;
   }
@@ -37,6 +50,8 @@ const Container
 const Wrapper = styled.div`
   background: linear-gradient(123.75deg, #F5821F 1.87%, #FF5C00 120.46%);
   height:280px;
+  opacity: 0;
+  animation: ${fadeEasy} .6s 150ms 1 forwards ease;
   `
 const Name = styled.div`
 font-size: 30px;
@@ -55,6 +70,8 @@ const IntroComponent = styled.div`
   margin:0 auto;
   color: #FFFFFF;
   padding: 20px;
+  opacity: 0;
+  animation: ${fadeEasy} .72s 300ms 1 forwards ease;
   `
 const IntroWrapper = styled.div`
   padding: 5px 0;
@@ -69,6 +86,8 @@ width: 90%;
 display: flex;
 align-items: center;
 gap: 10px;
+opacity: 0;
+animation: ${fadeEasy} .72s ${( { delay } ) => `${delay}s`} 1 forwards ease;
 `
 const QuestionContainer = styled.div`
 height:100%;
@@ -85,6 +104,8 @@ background: #FFFFFF;
 border: 1px solid #E4E4E4;
 box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.05);
 border-radius: 8px; 
+opacity: 0;
+animation: ${fadeEasy} .6s 800ms 1 forwards ease;
 `
 const BulletPoint = styled.div`
 background: rgba(255, 118, 0, 0.15);
@@ -117,6 +138,8 @@ text-align: center;
 font-size: 14px;
 font-weight: 500;
 padding:12px 14px;
+opacity: 0;
+animation: ${fadeEasy} .6s 3.8s 1 forwards ease;
 @media screen and (max-width:377px) {
 padding: 10px 0;
 width: 80%;
@@ -158,8 +181,8 @@ const ChatBot = ( { handleClick } ) => {
                         <Title>Frequently Asked Questions</Title>
                         <Icon>?</Icon>
                     </TitleWrapper>
-                    {questions.map( ( { id, question } ) =>
-                        <Question key={id}> <BulletPoint><SmallBulletPoint></SmallBulletPoint></BulletPoint>{question}</Question>
+                    {questions.map( ( { id, question }, index ) =>
+                        <Question delay={index === 0 ? 1.2 : .7 * index + 1} key={id}> <BulletPoint><SmallBulletPoint></SmallBulletPoint></BulletPoint>{question}</Question>
                     )}
                     <Button> <ChatIcon />Start a New Conversation</Button>
                 </QuestionWrapper>
