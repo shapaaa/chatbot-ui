@@ -42,7 +42,7 @@ const Container
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 4px 16px rgb(0 0 0 / 25%);
-  animation: ${moveUp} .5s 0s ease forwards;
+  animation: ${moveUp} .70s 200ms ease forwards;
   @media screen and (max-width:440px) {
     width: 95vw;
   }
@@ -51,7 +51,7 @@ const Wrapper = styled.div`
   background: linear-gradient(123.75deg, #F5821F 1.87%, #FF5C00 120.46%);
   height:280px;
   opacity: 0;
-  animation: ${fadeEasy} .6s 150ms 1 forwards ease;
+  animation: ${fadeEasy} .70s 400ms 1 forwards ease;
   `
 const Name = styled.div`
 font-size: 30px;
@@ -71,7 +71,7 @@ const IntroComponent = styled.div`
   color: #FFFFFF;
   padding: 20px;
   opacity: 0;
-  animation: ${fadeEasy} .72s 300ms 1 forwards ease;
+  animation: ${fadeEasy} .70s 800ms 1 forwards ease;
   `
 const IntroWrapper = styled.div`
   padding: 5px 0;
@@ -87,7 +87,7 @@ display: flex;
 align-items: center;
 gap: 10px;
 opacity: 0;
-animation: ${fadeEasy} .72s ${( { delay } ) => `${delay}s`} 1 forwards ease;
+animation: ${fadeEasy} .70s ${( { delay } ) => `${delay}s`} 1 forwards ease;
 `
 const QuestionContainer = styled.div`
 height:100%;
@@ -105,7 +105,7 @@ border: 1px solid #E4E4E4;
 box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.05);
 border-radius: 8px; 
 opacity: 0;
-animation: ${fadeEasy} .6s 800ms 1 forwards ease;
+animation: ${fadeEasy} .70s 1.2s 1 forwards ease;
 `
 const BulletPoint = styled.div`
 background: rgba(255, 118, 0, 0.15);
@@ -139,7 +139,7 @@ font-size: 14px;
 font-weight: 500;
 padding:12px 14px;
 opacity: 0;
-animation: ${fadeEasy} .6s 3.8s 1 forwards ease;
+animation: ${fadeEasy} .70s 4.8s 1 forwards ease;
 @media screen and (max-width:377px) {
 padding: 10px 0;
 width: 80%;
@@ -182,7 +182,7 @@ const ChatBot = ( { handleClick } ) => {
                         <Icon>?</Icon>
                     </TitleWrapper>
                     {questions.map( ( { id, question }, index ) =>
-                        <Question delay={index === 0 ? 1.2 : .7 * index + 1} key={id}> <BulletPoint><SmallBulletPoint></SmallBulletPoint></BulletPoint>{question}</Question>
+                        <Question delay={( 2.2 + .7 * index )} key={id}> <BulletPoint><SmallBulletPoint></SmallBulletPoint></BulletPoint>{question}</Question>
                     )}
                     <Button> <ChatIcon />Start a New Conversation</Button>
                 </QuestionWrapper>

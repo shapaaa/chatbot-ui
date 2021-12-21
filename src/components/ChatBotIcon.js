@@ -15,7 +15,7 @@ const Wrapper = styled.div`
   opacity: 0;
   left: 38px;
   top: 165px;
-  animation: ${fadeEasy} .62s 200ms 1 forwards ease;
+  animation: ${fadeEasy} .62s 800ms 1 forwards ease;
   `}
   
   ${( { button } ) => button && css`

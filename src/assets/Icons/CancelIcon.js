@@ -11,7 +11,7 @@ right:10px;
 top:10px;
 cursor: pointer;
 opacity: 0;
-animation: ${fadeEasy} .6s 3.8s 1 forwards ease;
+animation: ${fadeEasy} .72s 4.8s 1 forwards ease;
 z-index:1;
 `
 const CancelIcon = ( { handleClick } ) => {
